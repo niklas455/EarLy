@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/btPlayInterval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_sound_96x96" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btPlayInterval"
+        android:layout_margin="16dp">
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btUnison"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Unison"
+                android:layout_margin="5dp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btMinor2nd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Minor 2nd"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btMajor2nd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Major 2nd"
+                android:layout_margin="5dp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btMinor3nd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Minor 3rd"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btMajor3rd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Major 3rd"
+                android:layout_margin="5dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btPerfect4th"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Perfect 4th"
+                android:layout_margin="5dp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btTritone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tritone"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btPerfect5th"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Perfect 5th"
+                android:layout_margin="5dp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btMinor6th"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Minor 6th"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btMajor6th"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Major 6th"
+                android:layout_margin="5dp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btMinor7th"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Minor 7th"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btMajor7th"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Major 7th"
+                android:layout_margin="5dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/btOctave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Octave"
+                android:layout_margin="5dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/ibtSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_setting_48x48" />
+
+</RelativeLayout>

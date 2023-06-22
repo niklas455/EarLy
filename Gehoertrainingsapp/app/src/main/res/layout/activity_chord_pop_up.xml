@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtMajor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Major"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtMinor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minor"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtAugmented"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Augmented"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtDiminished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diminished"
+                android:layout_margin="10dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <RadioButton
+            android:id="@+id/rbtAscending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Ascending" />
+
+        <RadioButton
+            android:id="@+id/rbtDescending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Descending" />
+
+        <RadioButton
+            android:id="@+id/rbtHarmonic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Harmonic" />
+
+        <RadioButton
+            android:id="@+id/rbtRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Random" />
+    </RadioGroup>
+</LinearLayout>

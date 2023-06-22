@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/OneDrive - HTBLA Kaindorf/Kaindorf/Diplomarbeit_2.0_Gehoertraining/Gehoertrainingsapp/app/src/main/res/layout/activity_chord_pop_up.xml" value="0.36666666666666664" />
+        <entry key="..\:/OneDrive - HTBLA Kaindorf/Kaindorf/Diplomarbeit_2.0_Gehoertraining/Gehoertrainingsapp/app/src/main/res/layout/activity_chords.xml" value="0.36666666666666664" />
+        <entry key="..\:/OneDrive - HTBLA Kaindorf/Kaindorf/Diplomarbeit_2.0_Gehoertraining/Gehoertrainingsapp/app/src/main/res/layout/activity_interval_pop_up.xml" value="0.33" />
+        <entry key="..\:/OneDrive - HTBLA Kaindorf/Kaindorf/Diplomarbeit_2.0_Gehoertraining/Gehoertrainingsapp/app/src/main/res/layout/activity_intervals.xml" value="0.36666666666666664" />
+        <entry key="..\:/OneDrive - HTBLA Kaindorf/Kaindorf/Diplomarbeit_2.0_Gehoertraining/Gehoertrainingsapp/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/OneDrive - HTBLA Kaindorf/Kaindorf/Diplomarbeit_2.0_Gehoertraining/Gehoertrainingsapp/app/src/main/res/layout/activity_scale_pop_up.xml" value="0.36666666666666664" />
+        <entry key="..\:/OneDrive - HTBLA Kaindorf/Kaindorf/Diplomarbeit_2.0_Gehoertraining/Gehoertrainingsapp/app/src/main/res/layout/activity_scales.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

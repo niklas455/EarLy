@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtUnison"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unison"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtMinor2nd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minor 2nd"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtMajor2nd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Major 2nd"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtMinor3rd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minor 3rd"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtMajor3rd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Major 3rd"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtPerfect4th"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perfect 4th"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtTritone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tritone"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtPerfect5th"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perfect 5h"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtMinor6th"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minor 6th"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtMajor6th"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Major 6th"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtMinor7th"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minor 7th"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtMajor7th"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Major 7th"
+                android:layout_margin="10dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="10dp"/>
+            <Switch
+                android:id="@+id/sbtOctave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Octave"
+                android:layout_margin="10dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <RadioButton
+            android:id="@+id/rbtAscending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Ascending" />
+
+        <RadioButton
+            android:id="@+id/rbtDescending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Descending" />
+
+        <RadioButton
+            android:id="@+id/rbtHarmonic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Harmonic" />
+
+        <RadioButton
+            android:id="@+id/rbtRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="Random" />
+    </RadioGroup>
+</LinearLayout>

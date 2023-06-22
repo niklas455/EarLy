@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo2" />
+
+    <LinearLayout
+        android:id="@+id/buttonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivLogo"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="50dp">
+
+        <Button
+            android:id="@+id/btIntervals"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:text="intervals"
+            android:textSize="18sp" />
+        <Button
+            android:id="@+id/btChords"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:text="chords"
+            android:textSize="18sp"/>
+        <Button
+            android:id="@+id/btScales"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:text="scales"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <Switch
+        android:id="@+id/sbtDarkModeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp" />
+
+</RelativeLayout>
