@@ -29,7 +29,7 @@ public class ScalesActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
+        tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
         ibtPlayScale = findViewById(R.id.ibtPlayScale);
         ibtPlayScale.setOnClickListener(new View.OnClickListener() {

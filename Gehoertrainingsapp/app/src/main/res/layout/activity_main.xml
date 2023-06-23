@@ -6,18 +6,28 @@
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="170dp"
         android:layout_marginTop="50dp"
-        android:src="@drawable/ic_wave_100x100"/>
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_logo" />
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivLogo"
+        android:layout_margin="30dp"
+        android:gravity="center_horizontal"
+        android:text="EarLy"
+        android:textSize="64sp"/>
 
     <LinearLayout
         android:id="@+id/buttonsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ivLogo"
+        android:layout_below="@id/tvAppName"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginTop="50dp">
+        android:gravity="center">
 
         <Button
             android:id="@+id/btIntervals"

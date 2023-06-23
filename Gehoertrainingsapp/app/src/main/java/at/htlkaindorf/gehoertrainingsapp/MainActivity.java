@@ -7,21 +7,21 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView tvAppName;
     private Button btIntervals;
     private Button btChords;
     private Button btScales;
     private Switch sbtDarkModeSwitch;
-    private Typeface tf;
+
+    Typeface tf1, tf2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
+        tf1 = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
+        tf2 = Typeface.createFromAsset(getAssets(), "font/opensans_bold.ttf");
+
+        tvAppName = findViewById(R.id.tvAppName);
+        tvAppName.setTypeface(tf2);
 
         // open Interval Activity
         btIntervals = (Button) findViewById(R.id.btIntervals);
-        btIntervals.setTypeface(tf);
+        btIntervals.setTypeface(tf1);
         btIntervals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         // open Chord Activity
         btChords = (Button) findViewById(R.id.btChords);
-        btChords.setTypeface(tf);
+        btChords.setTypeface(tf1);
         btChords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         // open Scales Activity
         btScales = (Button) findViewById(R.id.btScales);
-        btScales.setTypeface(tf);
+        btScales.setTypeface(tf1);
         btScales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

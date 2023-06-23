@@ -29,7 +29,7 @@ public class ChordsActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
+        tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
         ibtPlayChord = findViewById(R.id.ibtPlayChord);
         ibtPlayChord.setOnClickListener(new View.OnClickListener() {

@@ -3,4 +3,8 @@
     <style name="SwitchCompatTheme" >
         <item name="colorControlActivated">@color/blue</item>
     </style>
+    <style name="NoActionBar" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

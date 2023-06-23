@@ -2,13 +2,9 @@ package at.htlkaindorf.gehoertrainingsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +38,7 @@ public class IntervalsActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
+        tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
         ibtPlayInterval = findViewById(R.id.ibtPlayInterval);
         ibtPlayInterval.setOnClickListener(new View.OnClickListener() {
