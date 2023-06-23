@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btChords;
     private Button btScales;
     private Switch sbtDarkModeSwitch;
+    private Typeface tf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        tf = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
+
         // open Interval Activity
         btIntervals = (Button) findViewById(R.id.btIntervals);
+        btIntervals.setTypeface(tf);
         btIntervals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         // open Chord Activity
         btChords = (Button) findViewById(R.id.btChords);
+        btChords.setTypeface(tf);
         btChords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         // open Scales Activity
         btScales = (Button) findViewById(R.id.btScales);
+        btScales.setTypeface(tf);
         btScales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

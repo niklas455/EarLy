@@ -7,69 +7,64 @@
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
         <TableRow>
             <Switch
                 android:id="@+id/sbtMajor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:text="Major"
-                android:layout_margin="10dp"/>
+                android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtNaturalMinor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:text="Natural Minor"
-                android:layout_margin="10dp"/>
+                android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
             <Switch
                 android:id="@+id/sbtHarmonicMinor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:text="Harmonic Minor"
-                android:layout_margin="10dp"/>
+                android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtMelodicMinor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:text="Melodic Minor"
-                android:layout_margin="10dp"/>
+                android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
     </TableLayout>
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="90dp">
 
         <RadioButton
             android:id="@+id/rbtAscending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:text="Ascending" />
+            android:text="Ascending"
+            android:theme="@style/SwitchCompatTheme"/>
 
         <RadioButton
             android:id="@+id/rbtDescending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:text="Descending" />
-
-        <RadioButton
-            android:id="@+id/rbtHarmonic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:text="Harmonic" />
+            android:text="Descending"
+            android:theme="@style/SwitchCompatTheme"/>
 
         <RadioButton
             android:id="@+id/rbtRandom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:text="Random" />
+            android:text="Random"
+            android:theme="@style/SwitchCompatTheme"/>
     </RadioGroup>
 </LinearLayout>

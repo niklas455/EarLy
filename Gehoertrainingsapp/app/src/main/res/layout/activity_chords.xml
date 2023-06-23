@@ -4,21 +4,22 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/btPlayInterval"
+        android:id="@+id/ibtPlayChord"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_sound_96x96" />
+        android:src="@drawable/ic_wave_100x100"
+        android:background="@drawable/rounded_corners"/>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btPlayInterval"
+        android:layout_below="@id/ibtPlayChord"
         android:layout_margin="16dp">
         <TableRow>
             <Button
@@ -26,15 +27,19 @@
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
+                android:textAllCaps="false"
                 android:text="Major"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
             <Button
                 android:id="@+id/btMinor"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
+                android:textAllCaps="false"
                 android:text="Minor"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
         </TableRow>
         <TableRow>
             <Button
@@ -42,20 +47,24 @@
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
+                android:textAllCaps="false"
                 android:text="Augmented"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
             <Button
                 android:id="@+id/btDiminished"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
+                android:textAllCaps="false"
                 android:text="Diminished"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
         </TableRow>
     </TableLayout>
 
     <ImageButton
-        android:id="@+id/btSettings"
+        android:id="@+id/ibtChordSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

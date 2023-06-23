@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:src="@drawable/logo2" />
+        android:src="@drawable/ic_wave_100x100"/>
 
     <LinearLayout
         android:id="@+id/buttonsContainer"
@@ -24,21 +23,24 @@
             android:id="@+id/btIntervals"
             android:layout_width="250dp"
             android:layout_height="80dp"
-            android:text="intervals"
-            android:textSize="18sp" />
+            android:textAllCaps="false"
+            android:text="Intervals"
+            android:textSize="20sp"/>
         <Button
             android:id="@+id/btChords"
             android:layout_width="250dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:text="chords"
-            android:textSize="18sp"/>
+            android:textAllCaps="false"
+            android:text="Chords"
+            android:textSize="20sp"/>
         <Button
             android:id="@+id/btScales"
             android:layout_width="250dp"
             android:layout_height="80dp"
-            android:text="scales"
-            android:textSize="18sp"/>
+            android:textAllCaps="false"
+            android:text="Scales"
+            android:textSize="20sp"/>
     </LinearLayout>
 
     <Switch
@@ -52,6 +54,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:minWidth="48dp"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:theme="@style/SwitchCompatTheme"/>
 
 </RelativeLayout>

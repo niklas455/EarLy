@@ -4,32 +4,33 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/btPlayInterval"
+        android:id="@+id/ibtPlayScale"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_corners"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_sound_96x96" />
+        android:src="@drawable/ic_wave_100x100" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btPlayInterval"
+        android:layout_below="@id/ibtPlayScale"
         android:layout_margin="16dp">
         <TableRow>
             <Button
-                android:id="@+id/btMajor"
+                android:id="@+id/btMajorScale"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:text="Major"
                 android:layout_margin="5dp"/>
             <Button
-                android:id="@+id/btNaturalMinor"
+                android:id="@+id/btNaturalMinorScale"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
@@ -38,24 +39,24 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/btHarmonicMinor"
+                android:id="@+id/btHarmonicMinorScale"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="Harmonic Minor"
+                android:text="Harmonic\nMinor"
                 android:layout_margin="5dp"/>
             <Button
-                android:id="@+id/btMelodicMinor"
+                android:id="@+id/btMelodicMinorScale"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="Melodic Minor"
+                android:text="Melodic\nMinor"
                 android:layout_margin="5dp"/>
         </TableRow>
     </TableLayout>
 
     <ImageButton
-        android:id="@+id/ibtSettings"
+        android:id="@+id/ibtScaleSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
