@@ -14,18 +14,6 @@
         android:theme="@style/Theme.Gehoertrainingsapp"
         tools:targetApi="31">
         <activity
-            android:name=".ScalePopUpActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity
-            android:name=".ChordPopUpActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity
-            android:name=".IntervalPopUpActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity
             android:name=".ScalesActivity"
             android:exported="false" />
         <activity

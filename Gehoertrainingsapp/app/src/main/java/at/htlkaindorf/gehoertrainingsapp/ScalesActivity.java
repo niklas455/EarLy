@@ -2,9 +2,12 @@ package at.htlkaindorf.gehoertrainingsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +20,7 @@ public class ScalesActivity extends AppCompatActivity {
     private Button btNaturalMinorScale;
     private Button btHarmonicMinorScale;
     private Button btMelodicMinorScale;
-    private ImageButton ibtSettings;
+    private Dialog scaleSettings;
 
     private Typeface tf;
 
@@ -25,6 +28,7 @@ public class ScalesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scales);
+        scaleSettings = new Dialog(this);
 
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -74,14 +78,11 @@ public class ScalesActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-        ibtSettings = findViewById(R.id.ibtScaleSettings);
-        ibtSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ScalesActivity.this, ScalePopUpActivity.class);
-                startActivity(intent);
-            }
-        });
+    public void openScaleSettings(View v) {
+        scaleSettings.setContentView(R.layout.activity_scale_pop_up);
+        scaleSettings.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        scaleSettings.show();
     }
 }

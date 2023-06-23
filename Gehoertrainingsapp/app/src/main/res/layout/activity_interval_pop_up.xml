@@ -4,7 +4,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corners_popup">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -22,6 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Unison"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -30,12 +32,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Minor 2nd"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtMajor2nd"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Major 2nd"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -44,12 +48,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Minor 3rd"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtMajor3rd"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Major 3rd"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -63,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Perfect 4th"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -71,12 +78,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Tritone"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtPerfect5th"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:text="Perfect 5h"
+                android:text="Perfect 5th"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -85,12 +94,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Minor 6th"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtMajor6th"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Major 6th"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -99,12 +110,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Minor 7th"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtMajor7th"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Major 7th"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -118,6 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Octave"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
     </TableLayout>
@@ -133,6 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ascending"
+            android:textColor="@color/white"
             android:theme="@style/SwitchCompatTheme"/>
 
         <RadioButton
@@ -140,6 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descending"
+            android:textColor="@color/white"
             android:theme="@style/SwitchCompatTheme"/>
 
         <RadioButton
@@ -147,6 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Harmonic"
+            android:textColor="@color/white"
             android:theme="@style/SwitchCompatTheme"/>
 
         <RadioButton
@@ -154,6 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Random"
+            android:textColor="@color/white"
             android:theme="@style/SwitchCompatTheme"/>
     </RadioGroup>
 </LinearLayout>

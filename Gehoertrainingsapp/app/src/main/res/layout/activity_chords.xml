@@ -12,9 +12,9 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_corners"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_wave_100x100"
-        android:background="@drawable/rounded_corners"/>
+        android:src="@drawable/ic_wave_100x100" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -64,6 +64,7 @@
     </TableLayout>
 
     <ImageButton
+        android:onClick="openChordSettings"
         android:id="@+id/ibtChordSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

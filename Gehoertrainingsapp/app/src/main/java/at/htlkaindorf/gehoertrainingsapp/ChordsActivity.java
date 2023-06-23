@@ -2,9 +2,12 @@ package at.htlkaindorf.gehoertrainingsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +20,7 @@ public class ChordsActivity extends AppCompatActivity {
     private Button btMinor;
     private Button btAugmented;
     private Button btDiminished;
-    private ImageButton ibtSettings;
+    private Dialog chordSettings;
 
     private Typeface tf;
 
@@ -25,6 +28,7 @@ public class ChordsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chords);
+        chordSettings = new Dialog(this);
 
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -74,14 +78,11 @@ public class ChordsActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-        ibtSettings = findViewById(R.id.ibtChordSettings);
-        ibtSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ChordsActivity.this, ChordPopUpActivity.class);
-                startActivity(intent);
-            }
-        });
+    public void openChordSettings(View v) {
+        chordSettings.setContentView(R.layout.activity_chord_pop_up);
+        chordSettings.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        chordSettings.show();
     }
 }

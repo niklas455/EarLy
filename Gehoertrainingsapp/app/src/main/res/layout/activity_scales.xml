@@ -56,6 +56,7 @@
     </TableLayout>
 
     <ImageButton
+        android:onClick="openScaleSettings"
         android:id="@+id/ibtScaleSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

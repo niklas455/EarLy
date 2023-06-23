@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corners_popup">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -16,12 +17,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Major"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtNaturalMinor"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Natural Minor"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
@@ -30,12 +33,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Harmonic Minor"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
                 android:id="@+id/sbtMelodicMinor"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Melodic Minor"
+                android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
     </TableLayout>
@@ -51,6 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ascending"
+            android:textColor="@color/white"
             android:theme="@style/SwitchCompatTheme"/>
 
         <RadioButton
@@ -58,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descending"
+            android:textColor="@color/white"
             android:theme="@style/SwitchCompatTheme"/>
 
         <RadioButton
@@ -65,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Random"
+            android:textColor="@color/white"
             android:theme="@style/SwitchCompatTheme"/>
     </RadioGroup>
 </LinearLayout>
