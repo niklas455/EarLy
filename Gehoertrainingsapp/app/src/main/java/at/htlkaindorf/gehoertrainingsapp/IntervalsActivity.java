@@ -45,6 +45,20 @@ public class IntervalsActivity extends AppCompatActivity {
         tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
         ibtPlayInterval = findViewById(R.id.ibtPlayInterval);
+        btUnison = findViewById(R.id.btUnison);
+        btMinor2nd = findViewById(R.id.btMinor2nd);
+        btMajor2nd = findViewById(R.id.btMajor2nd);
+        btMinor3rd = findViewById(R.id.btMinor3nd);
+        btMajor3rd = findViewById(R.id.btMajor3rd);
+        btPerfect4th = findViewById(R.id.btPerfect4th);
+        btTritone = findViewById(R.id.btTritone);
+        btPerfect5th = findViewById(R.id.btPerfect5th);
+        btMinor6th = findViewById(R.id.btMinor6th);
+        btMajor6th = findViewById(R.id.btMajor6th);
+        btMinor7th = findViewById(R.id.btMinor7th);
+        btMajor7th = findViewById(R.id.btMajor7th);
+        btOctave = findViewById(R.id.btOctave);
+
         ibtPlayInterval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,123 +66,83 @@ public class IntervalsActivity extends AppCompatActivity {
             }
         });
 
-        btUnison = findViewById(R.id.btUnison);
         btUnison.setTypeface(tf);
-        btUnison.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMinor2nd = findViewById(R.id.btMinor2nd);
         btMinor2nd.setTypeface(tf);
-        btMinor2nd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMajor2nd = findViewById(R.id.btMajor2nd);
         btMajor2nd.setTypeface(tf);
-        btMajor2nd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMinor3rd = findViewById(R.id.btMinor3nd);
         btMinor3rd.setTypeface(tf);
-        btMinor3rd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMajor3rd = findViewById(R.id.btMajor3rd);
         btMajor3rd.setTypeface(tf);
-        btMajor3rd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btPerfect4th = findViewById(R.id.btPerfect4th);
         btPerfect4th.setTypeface(tf);
-        btPerfect4th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btTritone = findViewById(R.id.btTritone);
         btTritone.setTypeface(tf);
-        btTritone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btPerfect5th = findViewById(R.id.btPerfect5th);
         btPerfect5th.setTypeface(tf);
-        btPerfect5th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMinor6th = findViewById(R.id.btMinor6th);
         btMinor6th.setTypeface(tf);
-        btMinor6th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMajor6th = findViewById(R.id.btMajor6th);
         btMajor6th.setTypeface(tf);
-        btMajor6th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMinor7th = findViewById(R.id.btMinor7th);
         btMinor7th.setTypeface(tf);
-        btMinor7th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btMajor7th = findViewById(R.id.btMajor7th);
         btMajor7th.setTypeface(tf);
-        btMajor7th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        btOctave = findViewById(R.id.btOctave);
         btOctave.setTypeface(tf);
-        btOctave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+        btUnison.setOnClickListener(onClickInterval);
+        btMinor2nd.setOnClickListener(onClickInterval);
+        btMajor2nd.setOnClickListener(onClickInterval);
+        btMinor3rd.setOnClickListener(onClickInterval);
+        btMajor3rd.setOnClickListener(onClickInterval);
+        btPerfect4th.setOnClickListener(onClickInterval);
+        btTritone.setOnClickListener(onClickInterval);
+        btPerfect5th.setOnClickListener(onClickInterval);
+        btMinor6th.setOnClickListener(onClickInterval);
+        btMajor6th.setOnClickListener(onClickInterval);
+        btMinor7th.setOnClickListener(onClickInterval);
+        btMajor7th.setOnClickListener(onClickInterval);
+        btOctave.setOnClickListener(onClickInterval);
+
     }
+
+    private View.OnClickListener onClickInterval = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btUnison:
+                    System.out.println("Unison");
+                    break;
+                case R.id.btMinor2nd:
+                    System.out.println("Minor 2nd");
+                    break;
+                case R.id.btMajor2nd:
+                    System.out.println("Major 2nd");
+                    break;
+                case R.id.btMinor3nd:
+                    System.out.println("Minor 3rd");
+                    break;
+                case R.id.btMajor3rd:
+                    System.out.println("Major 3rd");
+                    break;
+                case R.id.btPerfect4th:
+                    System.out.println("Perfect 4th");
+                    break;
+                case R.id.btTritone:
+                    System.out.println("Tritone");
+                    break;
+                case R.id.btPerfect5th:
+                    System.out.println("Perfect 5th");
+                    break;
+                case R.id.btMinor6th:
+                    System.out.println("Minor 6th");
+                    break;
+                case R.id.btMajor6th:
+                    System.out.println("Major 6th");
+                    break;
+                case R.id.btMinor7th:
+                    System.out.println("Minor 7th");
+                    break;
+                case R.id.btMajor7th:
+                    System.out.println("Major 7th");
+                    break;
+                case R.id.btOctave:
+                    System.out.println("Octave");
+                    break;
+            }
+        }
+    };
 
     public void openIntervalSettings(View v) {
         intervalSettings.setContentView(R.layout.activity_interval_pop_up);

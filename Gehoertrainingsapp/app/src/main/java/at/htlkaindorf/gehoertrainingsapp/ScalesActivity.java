@@ -44,41 +44,41 @@ public class ScalesActivity extends AppCompatActivity {
         });
 
         btMajorScale = findViewById(R.id.btMajorScale);
-        btMajorScale.setTypeface(tf);
-        btMajorScale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         btNaturalMinorScale = findViewById(R.id.btNaturalMinorScale);
-        btNaturalMinorScale.setTypeface(tf);
-        btNaturalMinorScale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         btHarmonicMinorScale = findViewById(R.id.btHarmonicMinorScale);
-        btHarmonicMinorScale.setTypeface(tf);
-        btHarmonicMinorScale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         btMelodicMinorScale = findViewById(R.id.btMelodicMinorScale);
-        btMelodicMinorScale.setTypeface(tf);
-        btMelodicMinorScale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+        btMajorScale.setTypeface(tf);
+        btNaturalMinorScale.setTypeface(tf);
+        btHarmonicMinorScale.setTypeface(tf);
+        btMelodicMinorScale.setTypeface(tf);
+
+        btMajorScale.setOnClickListener(onClickScale);
+        btNaturalMinorScale.setOnClickListener(onClickScale);
+        btHarmonicMinorScale.setOnClickListener(onClickScale);
+        btMelodicMinorScale.setOnClickListener(onClickScale);
     }
+
+    private View.OnClickListener onClickScale = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btMajorScale:
+                    System.out.println("Major Scale");
+                    break;
+                case R.id.btNaturalMinorScale:
+                    System.out.println("Natural Minor Scale");
+                    break;
+                case R.id.btHarmonicMinorScale:
+                    System.out.println("Harmonic Minor Scale");
+                    break;
+                case R.id.btMelodicMinorScale:
+                    System.out.println("Melodic Minor Scale");
+                    break;
+            }
+        }
+    };
 
     public void openScaleSettings(View v) {
         scaleSettings.setContentView(R.layout.activity_scale_pop_up);

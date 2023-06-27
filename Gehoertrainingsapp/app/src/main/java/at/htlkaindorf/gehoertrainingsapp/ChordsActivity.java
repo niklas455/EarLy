@@ -44,41 +44,41 @@ public class ChordsActivity extends AppCompatActivity {
         });
 
         btMajor = findViewById(R.id.btMajor);
-        btMajor.setTypeface(tf);
-        btMajor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         btMinor = findViewById(R.id.btMinor);
-        btMinor.setTypeface(tf);
-        btMinor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         btAugmented = findViewById(R.id.btAugmented);
-        btAugmented.setTypeface(tf);
-        btAugmented.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         btDiminished = findViewById(R.id.btDiminished);
-        btDiminished.setTypeface(tf);
-        btDiminished.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+        btMajor.setTypeface(tf);
+        btMinor.setTypeface(tf);
+        btAugmented.setTypeface(tf);
+        btDiminished.setTypeface(tf);
+
+        btMajor.setOnClickListener(onClickChord);
+        btMinor.setOnClickListener(onClickChord);
+        btAugmented.setOnClickListener(onClickChord);
+        btDiminished.setOnClickListener(onClickChord);
     }
+
+    private View.OnClickListener onClickChord = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btMajor:
+                    System.out.println("Major");
+                    break;
+                case R.id.btMinor:
+                    System.out.println("Minor");
+                    break;
+                case R.id.btAugmented:
+                    System.out.println("Augmented");
+                    break;
+                case R.id.btDiminished:
+                    System.out.println("Diminished");
+                    break;
+            }
+        }
+    };
 
     public void openChordSettings(View v) {
         chordSettings.setContentView(R.layout.activity_chord_pop_up);
