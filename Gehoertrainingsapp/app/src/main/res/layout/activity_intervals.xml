@@ -60,7 +60,7 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/btMinor3nd"
+                android:id="@+id/btMinor3rd"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

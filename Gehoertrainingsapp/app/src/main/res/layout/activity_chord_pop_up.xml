@@ -51,42 +51,31 @@
         </TableRow>
     </TableLayout>
 
-    <RadioGroup
+
+    <CheckBox
+        android:id="@+id/cbAscending"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
-        android:layout_marginBottom="10dp">
-
-        <RadioButton
-            android:id="@+id/rbtAscending"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ascending"
-            android:textColor="@color/white"
-            android:theme="@style/SwitchCompatTheme" />
-
-        <RadioButton
-            android:id="@+id/rbtDescending"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descending"
-            android:textColor="@color/white"
-            android:theme="@style/SwitchCompatTheme" />
-
-        <RadioButton
-            android:id="@+id/rbtHarmonic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Harmonic"
-            android:textColor="@color/white"
-            android:theme="@style/SwitchCompatTheme" />
-
-        <RadioButton
-            android:id="@+id/rbtRandom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Random"
-            android:textColor="@color/white"
-            android:theme="@style/SwitchCompatTheme" />
-    </RadioGroup>
+        android:layout_marginTop="10dp"
+        android:text="Ascending"
+        android:textColor="@color/white"
+        android:theme="@style/SwitchCompatTheme"/>
+    <CheckBox
+        android:id="@+id/cbDescending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:text="Descending"
+        android:textColor="@color/white"
+        android:theme="@style/SwitchCompatTheme"/>
+    <CheckBox
+        android:id="@+id/cbHarmonic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="10dp"
+        android:text="Harmonic"
+        android:textColor="@color/white"
+        android:theme="@style/SwitchCompatTheme"/>
 </LinearLayout>

@@ -3,9 +3,11 @@ package at.htlkaindorf.gehoertrainingsapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import android.app.Dialog;
+import android.app.UiModeManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,10 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
+import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettings;
+import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettings;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private Switch sbtDarkModeSwitch;
 
     Typeface tf1, tf2;
+
+    private IntervalSettings intervalSettings;
+    private ChordSettings chordSettings;
+    private ScaleSettings scaleSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         tvAppName = findViewById(R.id.tvAppName);
         tvAppName.setTypeface(tf2);
 
+        intervalSettings = new IntervalSettings(true, false, true, false, true, true, false, true, false, false, false, false, false, true, false, false);
+        chordSettings = new ChordSettings(true, true, false, false, true, false, false);
+        scaleSettings = new ScaleSettings(true, true, false, false, true, false);
+
         // open Interval Activity
         btIntervals = (Button) findViewById(R.id.btIntervals);
         btIntervals.setTypeface(tf1);
@@ -45,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, IntervalsActivity.class);
+                intent.putExtra("intervalSettings", intervalSettings);
                 startActivity(intent);
             }
         });
@@ -56,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ChordsActivity.class);
+                intent.putExtra("chordSettings", chordSettings);
                 startActivity(intent);
             }
         });
@@ -67,12 +83,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ScalesActivity.class);
+                intent.putExtra("scaleSettings", scaleSettings);
                 startActivity(intent);
             }
         });
 
         sbtDarkModeSwitch = (Switch) findViewById(R.id.sbtDarkModeSwitch);
-        sbtDarkModeSwitch.setChecked(true);
+        sbtDarkModeSwitch.setChecked(isSystemInDarkMode(this));
         sbtDarkModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
@@ -83,5 +100,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public boolean isSystemInDarkMode(Context context) {
+        UiModeManager uiModeManager = (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
+        return uiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES;
     }
 }

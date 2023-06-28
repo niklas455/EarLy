@@ -13,7 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class ScalesActivity extends AppCompatActivity {
+import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
+import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettings;
+import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettingsDialogCallback;
+
+public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDialogCallback {
 
     private ImageButton ibtPlayScale;
     private Button btMajorScale;
@@ -23,30 +27,35 @@ public class ScalesActivity extends AppCompatActivity {
     private Dialog scaleSettings;
 
     private Typeface tf;
+    private ScaleSettings scaleSettingsValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scales);
-        scaleSettings = new Dialog(this);
 
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
+        Intent intent = getIntent();
+        if(intent != null && intent.hasExtra("scaleSettings")) {
+            scaleSettingsValues = (ScaleSettings) intent.getSerializableExtra("scaleSettings");
+        }
+
         ibtPlayScale = findViewById(R.id.ibtPlayScale);
+        btMajorScale = findViewById(R.id.btMajorScale);
+        btNaturalMinorScale = findViewById(R.id.btNaturalMinorScale);
+        btHarmonicMinorScale = findViewById(R.id.btHarmonicMinorScale);
+        btMelodicMinorScale = findViewById(R.id.btMelodicMinorScale);
+
         ibtPlayScale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
-
-        btMajorScale = findViewById(R.id.btMajorScale);
-        btNaturalMinorScale = findViewById(R.id.btNaturalMinorScale);
-        btHarmonicMinorScale = findViewById(R.id.btHarmonicMinorScale);
-        btMelodicMinorScale = findViewById(R.id.btMelodicMinorScale);
 
         btMajorScale.setTypeface(tf);
         btNaturalMinorScale.setTypeface(tf);
@@ -81,8 +90,14 @@ public class ScalesActivity extends AppCompatActivity {
     };
 
     public void openScaleSettings(View v) {
+        scaleSettings = new ScaleSettingsDialog(this, scaleSettingsValues, this);
         scaleSettings.setContentView(R.layout.activity_scale_pop_up);
         scaleSettings.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         scaleSettings.show();
+    }
+
+    @Override
+    public void onScaleSettingsReturned(ScaleSettings scaleSettingsValues) {
+        this.scaleSettingsValues = scaleSettingsValues;
     }
 }

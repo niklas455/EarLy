@@ -13,7 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class IntervalsActivity extends AppCompatActivity {
+import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
+import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettings;
+import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettingsDialogCallback;
+
+public class IntervalsActivity extends AppCompatActivity implements IntervalSettingsDialogCallback {
 
     private ImageButton ibtPlayInterval;
     private Button btUnison;
@@ -32,23 +36,28 @@ public class IntervalsActivity extends AppCompatActivity {
     private Dialog intervalSettings;
 
     private Typeface tf;
+    private IntervalSettings intervalSettingsValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intervals);
-        intervalSettings = new Dialog(this);
 
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
+        Intent intent = getIntent();
+        if(intent != null && intent.hasExtra("intervalSettings")) {
+            intervalSettingsValues = (IntervalSettings) intent.getSerializableExtra("intervalSettings");
+        }
+
         ibtPlayInterval = findViewById(R.id.ibtPlayInterval);
         btUnison = findViewById(R.id.btUnison);
         btMinor2nd = findViewById(R.id.btMinor2nd);
         btMajor2nd = findViewById(R.id.btMajor2nd);
-        btMinor3rd = findViewById(R.id.btMinor3nd);
+        btMinor3rd = findViewById(R.id.btMinor3rd);
         btMajor3rd = findViewById(R.id.btMajor3rd);
         btPerfect4th = findViewById(R.id.btPerfect4th);
         btTritone = findViewById(R.id.btTritone);
@@ -110,7 +119,7 @@ public class IntervalsActivity extends AppCompatActivity {
                 case R.id.btMajor2nd:
                     System.out.println("Major 2nd");
                     break;
-                case R.id.btMinor3nd:
+                case R.id.btMinor3rd:
                     System.out.println("Minor 3rd");
                     break;
                 case R.id.btMajor3rd:
@@ -145,8 +154,14 @@ public class IntervalsActivity extends AppCompatActivity {
     };
 
     public void openIntervalSettings(View v) {
+        intervalSettings = new IntervalSettingsDialog(this, intervalSettingsValues, this);
         intervalSettings.setContentView(R.layout.activity_interval_pop_up);
         intervalSettings.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         intervalSettings.show();
+    }
+
+    @Override
+    public void onIntervalSettingsReturned(IntervalSettings intervalSettingsValues) {
+        this.intervalSettingsValues = intervalSettingsValues;
     }
 }

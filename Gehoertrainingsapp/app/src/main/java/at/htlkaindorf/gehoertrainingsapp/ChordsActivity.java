@@ -13,7 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class ChordsActivity extends AppCompatActivity {
+import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
+import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettingsDialogCallback;
+
+public class ChordsActivity extends AppCompatActivity implements ChordSettingsDialogCallback {
 
     private ImageButton ibtPlayChord;
     private Button btMajor;
@@ -23,30 +26,35 @@ public class ChordsActivity extends AppCompatActivity {
     private Dialog chordSettings;
 
     private Typeface tf;
+    private ChordSettings chordSettingsValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chords);
-        chordSettings = new Dialog(this);
 
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
+        Intent intent = getIntent();
+        if(intent != null && intent.hasExtra("chordSettings")) {
+            chordSettingsValues = (ChordSettings) intent.getSerializableExtra("chordSettings");
+        }
+
         ibtPlayChord = findViewById(R.id.ibtPlayChord);
+        btMajor = findViewById(R.id.btMajor);
+        btMinor = findViewById(R.id.btMinor);
+        btAugmented = findViewById(R.id.btAugmented);
+        btDiminished = findViewById(R.id.btDiminished);
+
         ibtPlayChord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
-
-        btMajor = findViewById(R.id.btMajor);
-        btMinor = findViewById(R.id.btMinor);
-        btAugmented = findViewById(R.id.btAugmented);
-        btDiminished = findViewById(R.id.btDiminished);
 
         btMajor.setTypeface(tf);
         btMinor.setTypeface(tf);
@@ -57,10 +65,10 @@ public class ChordsActivity extends AppCompatActivity {
         btMinor.setOnClickListener(onClickChord);
         btAugmented.setOnClickListener(onClickChord);
         btDiminished.setOnClickListener(onClickChord);
+
     }
 
     private View.OnClickListener onClickChord = new View.OnClickListener() {
-
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
@@ -81,8 +89,14 @@ public class ChordsActivity extends AppCompatActivity {
     };
 
     public void openChordSettings(View v) {
+        chordSettings = new ChordSettingsDialog(this, chordSettingsValues, this);
         chordSettings.setContentView(R.layout.activity_chord_pop_up);
         chordSettings.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         chordSettings.show();
+    }
+
+    @Override
+    public void onChordSettingsReturned(ChordSettings chordSettingsValues) {
+        this.chordSettingsValues = chordSettingsValues;
     }
 }
