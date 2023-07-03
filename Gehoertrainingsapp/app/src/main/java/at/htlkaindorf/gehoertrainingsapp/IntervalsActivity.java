@@ -3,6 +3,7 @@ package at.htlkaindorf.gehoertrainingsapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -103,6 +105,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         btMajor7th.setOnClickListener(onClickInterval);
         btOctave.setOnClickListener(onClickInterval);
 
+        enableDisableButtons(intervalSettingsValues);
     }
 
     private View.OnClickListener onClickInterval = new View.OnClickListener() {
@@ -157,11 +160,46 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         intervalSettings = new IntervalSettingsDialog(this, intervalSettingsValues, this);
         intervalSettings.setContentView(R.layout.activity_interval_pop_up);
         intervalSettings.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        intervalSettings.getWindow().setDimAmount(0.8f);
+        intervalSettings.setCanceledOnTouchOutside(true);
+        intervalSettings.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                onIntervalSettingsReturned(intervalSettingsValues);
+            }
+        });
         intervalSettings.show();
     }
 
     @Override
     public void onIntervalSettingsReturned(IntervalSettings intervalSettingsValues) {
+        if(intervalSettingsValues.allIntervalFalse()) {
+            intervalSettingsValues.setMajor2nd(true);
+            intervalSettingsValues.setMajor3rd(true);
+            intervalSettingsValues.setPerfect4th(true);
+            intervalSettingsValues.setPerfect5th(true);
+        }
+        if(intervalSettingsValues.allPlayModeFalse()) {
+            intervalSettingsValues.setAscending(true);
+        }
+
+        enableDisableButtons(intervalSettingsValues);
         this.intervalSettingsValues = intervalSettingsValues;
+    }
+
+    private void enableDisableButtons(IntervalSettings intervalSettingsValues) {
+        if(intervalSettingsValues.isUnison()) { btUnison.setEnabled(true);} else {btUnison.setEnabled(false);}
+        if(intervalSettingsValues.isMinor2nd()) { btMinor2nd.setEnabled(true);} else {btMinor2nd.setEnabled(false);}
+        if(intervalSettingsValues.isMajor2nd()) { btMajor2nd.setEnabled(true);} else {btMajor2nd.setEnabled(false);}
+        if(intervalSettingsValues.isMinor3rd()) { btMinor3rd.setEnabled(true);} else {btMinor3rd.setEnabled(false);}
+        if(intervalSettingsValues.isMajor3rd()) { btMajor3rd.setEnabled(true);} else {btMajor3rd.setEnabled(false);}
+        if(intervalSettingsValues.isPerfect4th()) { btPerfect4th.setEnabled(true);} else {btPerfect4th.setEnabled(false);}
+        if(intervalSettingsValues.isTriton()) { btTritone.setEnabled(true);} else {btTritone.setEnabled(false);}
+        if(intervalSettingsValues.isPerfect5th()) { btPerfect5th.setEnabled(true);} else {btPerfect5th.setEnabled(false);}
+        if(intervalSettingsValues.isMinor6th()) { btMinor6th.setEnabled(true);} else {btMinor6th.setEnabled(false);}
+        if(intervalSettingsValues.isMajor6th()) { btMajor6th.setEnabled(true);} else {btMajor6th.setEnabled(false);}
+        if(intervalSettingsValues.isMinor7th()) { btMinor7th.setEnabled(true);} else {btMinor7th.setEnabled(false);}
+        if(intervalSettingsValues.isMajor7th()) { btMajor7th.setEnabled(true);} else {btMajor7th.setEnabled(false);}
+        if(intervalSettingsValues.isOctave()) { btOctave.setEnabled(true);} else {btOctave.setEnabled(false);}
     }
 }

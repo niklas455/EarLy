@@ -61,10 +61,50 @@
                 android:layout_margin="5dp"
                 android:textSize="16sp"/>
         </TableRow>
+        <TableRow
+            android:layout_marginTop="15dp">
+            <Button
+                android:id="@+id/btDominant7th"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Dominant 7th"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/btMajor7thChord"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Major 7th"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btMinor7thChord"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Minor 7th"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/btDiminished7th"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Diminished 7th"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+        </TableRow>
     </TableLayout>
 
     <ImageButton
-        android:onClick="openChordSettings"
         android:id="@+id/ibtChordSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,6 +115,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_setting_48x48" />
+        android:onClick="openChordSettings"
+        android:src="@drawable/ic_setting_72x72" />
 
 </RelativeLayout>

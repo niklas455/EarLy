@@ -3,6 +3,7 @@ package at.htlkaindorf.gehoertrainingsapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -66,6 +67,8 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
         btNaturalMinorScale.setOnClickListener(onClickScale);
         btHarmonicMinorScale.setOnClickListener(onClickScale);
         btMelodicMinorScale.setOnClickListener(onClickScale);
+
+        enableDisableButtons(scaleSettingsValues);
     }
 
     private View.OnClickListener onClickScale = new View.OnClickListener() {
@@ -93,11 +96,35 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
         scaleSettings = new ScaleSettingsDialog(this, scaleSettingsValues, this);
         scaleSettings.setContentView(R.layout.activity_scale_pop_up);
         scaleSettings.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        scaleSettings.getWindow().setDimAmount(0.8f);
+        scaleSettings.setCanceledOnTouchOutside(true);
+        scaleSettings.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                onScaleSettingsReturned(scaleSettingsValues);
+            }
+        });
         scaleSettings.show();
     }
 
     @Override
     public void onScaleSettingsReturned(ScaleSettings scaleSettingsValues) {
+        if(scaleSettingsValues.allIntervalFalse()) {
+            scaleSettingsValues.setMajor(true);
+            scaleSettingsValues.setNaturalMinor(true);
+        }
+        if(scaleSettingsValues.allPlayModeFalse()) {
+            scaleSettingsValues.setAscending(true);
+        }
+
+        enableDisableButtons(scaleSettingsValues);
         this.scaleSettingsValues = scaleSettingsValues;
+    }
+
+    private void enableDisableButtons(ScaleSettings scaleSettingsValues) {
+        if(scaleSettingsValues.isMajor()) { btMajorScale.setEnabled(true);} else {btMajorScale.setEnabled(false);}
+        if(scaleSettingsValues.isNaturalMinor()) { btNaturalMinorScale.setEnabled(true);} else {btNaturalMinorScale.setEnabled(false);}
+        if(scaleSettingsValues.isHarmonicMinor()) { btHarmonicMinorScale.setEnabled(true);} else {btHarmonicMinorScale.setEnabled(false);}
+        if(scaleSettingsValues.isMelodicMinor()) { btMelodicMinorScale.setEnabled(true);} else {btMelodicMinorScale.setEnabled(false);}
     }
 }

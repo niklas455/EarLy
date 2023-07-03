@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         tvAppName = findViewById(R.id.tvAppName);
         tvAppName.setTypeface(tf2);
 
-        intervalSettings = new IntervalSettings(true, false, true, false, true, true, false, true, false, false, false, false, false, true, false, false);
-        chordSettings = new ChordSettings(true, true, false, false, true, false, false);
+        intervalSettings = new IntervalSettings(false, false, true, false, true, true, false, true, false, false, false, false, false, true, false, false);
+        chordSettings = new ChordSettings(true, true, false, false, false, false, false, false, false, false, true);
         scaleSettings = new ScaleSettings(true, true, false, false, true, false);
 
         // open Interval Activity

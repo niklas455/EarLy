@@ -175,7 +175,6 @@
     </TableLayout>
 
     <ImageButton
-        android:onClick="openIntervalSettings"
         android:id="@+id/ibtIntervalSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -186,6 +185,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_setting_48x48" />
+        android:onClick="openIntervalSettings"
+        android:src="@drawable/ic_setting_72x72" />
 
 </RelativeLayout>

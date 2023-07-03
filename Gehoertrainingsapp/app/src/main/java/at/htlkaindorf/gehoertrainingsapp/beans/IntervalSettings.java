@@ -25,4 +25,18 @@ public class IntervalSettings implements Serializable {
     private boolean descending;
     private boolean harmonic;
 
+    public boolean allIntervalFalse() {
+        if(!unison && !minor2nd && !major2nd && !minor3rd && !major3rd &&
+                !perfect4th && !triton && !perfect5th && !minor6th  && !major6th &&
+                !minor7th && !major7th  && !octave) {
+            return true;
+        } else { return false; }
+    }
+
+    public boolean allPlayModeFalse() {
+        if(!ascending && !descending  && !harmonic) {
+            return true;
+        } else { return false; }
+    }
+
 }

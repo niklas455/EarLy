@@ -13,7 +13,6 @@
         android:layout_margin="10dp">
 
         <TableRow>
-
             <Switch
                 android:id="@+id/sbtMajor"
                 android:layout_width="wrap_content"
@@ -30,9 +29,7 @@
                 android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme" />
         </TableRow>
-
         <TableRow>
-
             <Switch
                 android:id="@+id/sbtAugmented"
                 android:layout_width="wrap_content"
@@ -46,6 +43,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Diminished"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="15dp">
+            <Switch
+                android:id="@+id/sbtDominant7th"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Dominant 7th"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme" />
+
+            <Switch
+                android:id="@+id/sbtMajor7thChord"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Major 7th"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme" />
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtMinor7thChord"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Minor 7th"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme" />
+
+            <Switch
+                android:id="@+id/sbtDiminished7th"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Diminished 7th"
                 android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme" />
         </TableRow>

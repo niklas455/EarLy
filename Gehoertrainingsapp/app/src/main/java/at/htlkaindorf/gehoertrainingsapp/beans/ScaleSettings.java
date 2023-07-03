@@ -14,4 +14,16 @@ public class ScaleSettings implements Serializable {
     private boolean melodicMinor;
     private boolean ascending;
     private boolean descending;
+
+    public boolean allIntervalFalse() {
+        if(!major  && !naturalMinor && !harmonicMinor && !melodicMinor) {
+            return true;
+        } else { return false; }
+    }
+
+    public boolean allPlayModeFalse() {
+        if(!ascending && !descending) {
+            return true;
+        } else { return false; }
+    }
 }
