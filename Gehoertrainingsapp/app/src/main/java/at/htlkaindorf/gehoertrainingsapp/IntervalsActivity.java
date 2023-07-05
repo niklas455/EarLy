@@ -6,16 +6,22 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettings;
 import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettingsDialogCallback;
 
@@ -39,6 +45,10 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
 
     private Typeface tf;
     private IntervalSettings intervalSettingsValues;
+    private String rightInterval;
+    private String randomIntervalFile;
+
+    private ArrayList<String> audioFiles = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +83,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         ibtPlayInterval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                playSoundFile();
             }
         });
 
@@ -91,70 +101,170 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         btMajor7th.setTypeface(tf);
         btOctave.setTypeface(tf);
 
-        btUnison.setOnClickListener(onClickInterval);
-        btMinor2nd.setOnClickListener(onClickInterval);
-        btMajor2nd.setOnClickListener(onClickInterval);
-        btMinor3rd.setOnClickListener(onClickInterval);
-        btMajor3rd.setOnClickListener(onClickInterval);
-        btPerfect4th.setOnClickListener(onClickInterval);
-        btTritone.setOnClickListener(onClickInterval);
-        btPerfect5th.setOnClickListener(onClickInterval);
-        btMinor6th.setOnClickListener(onClickInterval);
-        btMajor6th.setOnClickListener(onClickInterval);
-        btMinor7th.setOnClickListener(onClickInterval);
-        btMajor7th.setOnClickListener(onClickInterval);
-        btOctave.setOnClickListener(onClickInterval);
+        btUnison.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("unison")) {enableDisableButtons(); }
+                else { btUnison.setEnabled(false);}
+            }
+        });
+        btMinor2nd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("minor2nd")) {enableDisableButtons(); }
+                else { btMinor2nd.setEnabled(false);}
+            }
+        });
+        btMajor2nd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("major2nd")) {enableDisableButtons(); }
+                else { btMajor2nd.setEnabled(false);}
+            }
+        });
+        btMinor3rd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("minor3rd")) {enableDisableButtons(); }
+                else { btMinor3rd.setEnabled(false);}
+            }
+        });
+        btMajor3rd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("major3rd")) {enableDisableButtons(); }
+                else { btMajor3rd.setEnabled(false);}
+            }
+        });
+        btPerfect4th.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("perfect4th")) {enableDisableButtons(); }
+                else { btPerfect4th.setEnabled(false);}
+            }
+        });
+        btTritone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("tritone")) {enableDisableButtons(); }
+                else { btTritone.setEnabled(false);}
+            }
+        });
+        btPerfect5th.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("perfect5th")) {enableDisableButtons(); }
+                else { btPerfect5th.setEnabled(false);}
+            }
+        });
+        btMinor6th.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("minor6th")) {enableDisableButtons(); }
+                else { btMinor6th.setEnabled(false);}
+            }
+        });
+        btMajor6th.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("major6th")) {enableDisableButtons(); }
+                else { btMajor6th.setEnabled(false);}
+            }
+        });
+        btMinor7th.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("minor7th")) {enableDisableButtons(); }
+                else { btMinor7th.setEnabled(false);}
+            }
+        });
+        btMajor7th.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("major7th")) {enableDisableButtons(); }
+                else { btMajor7th.setEnabled(false);}
+            }
+        });
+        btOctave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightInterval("octave")) {enableDisableButtons(); }
+                else { btOctave.setEnabled(false);}
+            }
+        });
 
-        enableDisableButtons(intervalSettingsValues);
+        enableDisableButtons();
+        generateRandomInterval();
+        playSoundFile();
     }
 
-    private View.OnClickListener onClickInterval = new View.OnClickListener() {
+    private void generateRandomInterval() {
+        List<String> possibleIntervalList = intervalSettingsValues.getPossibleIntervalList();
+        List<String> possiblePlayMode = intervalSettingsValues.getPossiblePlayMode();
+        String filename = "";
 
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.btUnison:
-                    System.out.println("Unison");
-                    break;
-                case R.id.btMinor2nd:
-                    System.out.println("Minor 2nd");
-                    break;
-                case R.id.btMajor2nd:
-                    System.out.println("Major 2nd");
-                    break;
-                case R.id.btMinor3rd:
-                    System.out.println("Minor 3rd");
-                    break;
-                case R.id.btMajor3rd:
-                    System.out.println("Major 3rd");
-                    break;
-                case R.id.btPerfect4th:
-                    System.out.println("Perfect 4th");
-                    break;
-                case R.id.btTritone:
-                    System.out.println("Tritone");
-                    break;
-                case R.id.btPerfect5th:
-                    System.out.println("Perfect 5th");
-                    break;
-                case R.id.btMinor6th:
-                    System.out.println("Minor 6th");
-                    break;
-                case R.id.btMajor6th:
-                    System.out.println("Major 6th");
-                    break;
-                case R.id.btMinor7th:
-                    System.out.println("Minor 7th");
-                    break;
-                case R.id.btMajor7th:
-                    System.out.println("Major 7th");
-                    break;
-                case R.id.btOctave:
-                    System.out.println("Octave");
-                    break;
-            }
+        Random rand = new Random();
+        rightInterval = possibleIntervalList.get(rand.nextInt(possibleIntervalList.size()));
+        String playMode = possiblePlayMode.get(rand.nextInt(possiblePlayMode.size()));
+
+        if(rightInterval.equals("unison")) {
+            filename = "audio/intervals/" + rightInterval;
+        } else {
+            filename = "audio/intervals/" + rightInterval + "/" + playMode;
         }
-    };
+
+        audioFiles.clear();
+        AssetManager assetManager = getAssets();
+        try {
+            String[] files = assetManager.list(filename);
+            for (String file : files) {
+                if (file.endsWith(".mp3")) {
+                    audioFiles.add(file);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Random random = new Random();
+
+        int randomIndex = random.nextInt(audioFiles.size());
+        randomIntervalFile = filename + "/" + audioFiles.get(randomIndex);
+        System.out.println(randomIntervalFile + "********************************************************************************++");
+    }
+
+    // test method
+    private void playSoundFile() {
+        AssetManager assetManager = getAssets();
+        MediaPlayer mediaPlayer = new MediaPlayer();
+
+        try {
+            AssetFileDescriptor assetFileDescriptor = assetManager.openFd(randomIntervalFile);
+            mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
+            mediaPlayer.prepare();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    ibtPlayInterval.setEnabled(true);
+                    mediaPlayer.release();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ibtPlayInterval.setEnabled(false);
+        mediaPlayer.start();
+    }
+
+    public boolean isRightInterval(String clickedButton) {
+        if(clickedButton.equals(rightInterval)) {
+            generateRandomInterval();
+            playSoundFile();
+            return true;
+        }
+        return false;
+    }
 
     public void openIntervalSettings(View v) {
         intervalSettings = new IntervalSettingsDialog(this, intervalSettingsValues, this);
@@ -183,11 +293,13 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             intervalSettingsValues.setAscending(true);
         }
 
-        enableDisableButtons(intervalSettingsValues);
         this.intervalSettingsValues = intervalSettingsValues;
+        enableDisableButtons();
+        generateRandomInterval();
+        playSoundFile();
     }
 
-    private void enableDisableButtons(IntervalSettings intervalSettingsValues) {
+    private void enableDisableButtons() {
         if(intervalSettingsValues.isUnison()) { btUnison.setEnabled(true);} else {btUnison.setEnabled(false);}
         if(intervalSettingsValues.isMinor2nd()) { btMinor2nd.setEnabled(true);} else {btMinor2nd.setEnabled(false);}
         if(intervalSettingsValues.isMajor2nd()) { btMajor2nd.setEnabled(true);} else {btMajor2nd.setEnabled(false);}
