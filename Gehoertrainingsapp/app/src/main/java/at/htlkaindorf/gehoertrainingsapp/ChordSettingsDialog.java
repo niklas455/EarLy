@@ -18,9 +18,11 @@ public class ChordSettingsDialog extends Dialog {
     private Switch sbtMinor;
     private Switch sbtAugmented;
     private Switch sbtDiminished;
-    private Switch sbtDominant7th;
     private Switch sbtMajor7th;
     private Switch sbtMinor7th;
+    private Switch sbtDominant7th;
+    private Switch sbtMinorMaj7th;
+    private Switch sbtHalfDim7th;
     private Switch sbtDiminished7th;
     private CheckBox cbAscending;
     private CheckBox cbDescending;
@@ -44,9 +46,11 @@ public class ChordSettingsDialog extends Dialog {
         sbtMinor = findViewById(R.id.sbtMinor);
         sbtAugmented = findViewById(R.id.sbtAugmented);
         sbtDiminished = findViewById(R.id.sbtDiminished);
-        sbtDominant7th = findViewById(R.id.sbtDominant7th);
         sbtMajor7th = findViewById(R.id.sbtMajor7thChord);
         sbtMinor7th = findViewById(R.id.sbtMinor7thChord);
+        sbtDominant7th = findViewById(R.id.sbtDominant7th);
+        sbtMinorMaj7th = findViewById(R.id.sbtMinorMaj7th);
+        sbtHalfDim7th = findViewById(R.id.sbtHalfDim7th);
         sbtDiminished7th = findViewById(R.id.sbtDiminished7th);
         cbAscending = findViewById(R.id.cbAscending);
         cbDescending = findViewById(R.id.cbDescending);
@@ -82,13 +86,6 @@ public class ChordSettingsDialog extends Dialog {
             }
         });
 
-        sbtDominant7th.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                chordSettingsValues.setDominant7th(sbtDominant7th.isChecked());
-            }
-        });
-
         sbtMajor7th.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -100,6 +97,27 @@ public class ChordSettingsDialog extends Dialog {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 chordSettingsValues.setMinor7th(sbtMinor7th.isChecked());
+            }
+        });
+
+        sbtDominant7th.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                chordSettingsValues.setDominant7th(sbtDominant7th.isChecked());
+            }
+        });
+
+        sbtMinorMaj7th.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                chordSettingsValues.setMinorMaj7th(sbtMinorMaj7th.isChecked());
+            }
+        });
+
+        sbtHalfDim7th.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                chordSettingsValues.setHalfDim7th(sbtHalfDim7th.isChecked());
             }
         });
 
@@ -138,9 +156,11 @@ public class ChordSettingsDialog extends Dialog {
         sbtMinor.setChecked(chordSettingsValues.isMinor());
         sbtAugmented.setChecked(chordSettingsValues.isAugmented());
         sbtDiminished.setChecked(chordSettingsValues.isDiminished());
-        sbtDominant7th.setChecked(chordSettingsValues.isDominant7th());
         sbtMajor7th.setChecked(chordSettingsValues.isMajor7th());
         sbtMinor7th.setChecked(chordSettingsValues.isMinor7th());
+        sbtDominant7th.setChecked(chordSettingsValues.isDominant7th());
+        sbtMinorMaj7th.setChecked(chordSettingsValues.isMinorMaj7th());
+        sbtHalfDim7th.setChecked(chordSettingsValues.isHalfDim7th());
         sbtDiminished7th.setChecked(chordSettingsValues.isDiminished7th());
         cbAscending.setChecked(chordSettingsValues.isAscending());
         cbDescending.setChecked(chordSettingsValues.isDescending());

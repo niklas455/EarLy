@@ -25,7 +25,7 @@
             <Button
                 android:id="@+id/btMajor"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
                 android:text="Major"
@@ -34,7 +34,7 @@
             <Button
                 android:id="@+id/btMinor"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
                 android:text="Minor"
@@ -45,7 +45,7 @@
             <Button
                 android:id="@+id/btAugmented"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
                 android:text="Augmented"
@@ -54,7 +54,7 @@
             <Button
                 android:id="@+id/btDiminished"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
                 android:text="Diminished"
@@ -64,38 +64,58 @@
         <TableRow
             android:layout_marginTop="15dp">
             <Button
+                android:id="@+id/btMajor7thChord"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Major 7th"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/btMinor7thChord"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Minor 7th"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+        </TableRow>
+        <TableRow>
+            <Button
                 android:id="@+id/btDominant7th"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
                 android:text="Dominant 7th"
                 android:layout_margin="5dp"
                 android:textSize="16sp"/>
             <Button
-                android:id="@+id/btMajor7thChord"
+                android:id="@+id/btMinorMaj7th"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
-                android:text="Major 7th"
+                android:text="Minor Maj 7th"
                 android:layout_margin="5dp"
                 android:textSize="16sp"/>
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/btMinor7thChord"
+                android:id="@+id/btHalfDim7th"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
-                android:text="Minor 7th"
+                android:text="Half Dim 7th"
                 android:layout_margin="5dp"
                 android:textSize="16sp"/>
             <Button
                 android:id="@+id/btDiminished7th"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:textAllCaps="false"
                 android:text="Diminished 7th"

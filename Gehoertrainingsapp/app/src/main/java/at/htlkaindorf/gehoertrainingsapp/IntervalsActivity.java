@@ -233,7 +233,6 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         System.out.println(randomIntervalFile + "********************************************************************************++");
     }
 
-    // test method
     private void playSoundFile() {
         AssetManager assetManager = getAssets();
         MediaPlayer mediaPlayer = new MediaPlayer();
