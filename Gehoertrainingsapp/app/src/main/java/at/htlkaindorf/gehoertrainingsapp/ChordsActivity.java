@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettingsDialogCallback;
 
 public class ChordsActivity extends AppCompatActivity implements ChordSettingsDialogCallback {
 
+    private TextView tvProgress;
+    private Button btResetProgress;
     private ImageButton ibtPlayChord;
     private Button btMajor;
     private Button btMinor;
@@ -43,10 +46,13 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
 
     private Typeface tf;
     private ChordSettings chordSettingsValues;
+    private int numberAttempts = 0;
+    private int numberRights = 0;
     private String rightChord;
     private String randomChordFile;
 
     private ArrayList<String> audioFiles = new ArrayList<>();
+    private MediaPlayer mediaPlayer = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +69,8 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             chordSettingsValues = (ChordSettings) intent.getSerializableExtra("chordSettings");
         }
 
+        tvProgress = findViewById(R.id.tvProgress);
+        btResetProgress = findViewById(R.id.btResetProgress);
         ibtPlayChord = findViewById(R.id.ibtPlayChord);
         btMajor = findViewById(R.id.btMajor);
         btMinor = findViewById(R.id.btMinor);
@@ -75,6 +83,15 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
         btHalfDim7th = findViewById(R.id.btHalfDim7th);
         btDiminished7th = findViewById(R.id.btDiminished7th);
 
+        btResetProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numberAttempts = 0;
+                numberRights = 0;
+                tvProgress.setText(numberRights + " / " + numberAttempts);
+            }
+        });
+
         ibtPlayChord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +99,8 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             }
         });
 
+        tvProgress.setTypeface(tf);
+        btResetProgress.setTypeface(tf);
         btMajor.setTypeface(tf);
         btMinor.setTypeface(tf);
         btAugmented.setTypeface(tf);
@@ -98,6 +117,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("major")) {enableDisableButtons(); }
                 else { btMajor.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMinor.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +125,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("minor")) {enableDisableButtons(); }
                 else { btMinor.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btAugmented.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +133,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("augmented")) {enableDisableButtons(); }
                 else { btAugmented.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btDiminished.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +141,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("diminished")) {enableDisableButtons(); }
                 else { btDiminished.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMajor7th.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +149,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("major7th")) {enableDisableButtons(); }
                 else { btMajor7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMinor7th.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +157,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("minor7th")) {enableDisableButtons(); }
                 else { btMinor7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btDominant7th.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +165,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("dominant7th")) {enableDisableButtons(); }
                 else { btDominant7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMinorMaj7th.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +173,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("minormaj7th")) {enableDisableButtons(); }
                 else { btMinorMaj7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btHalfDim7th.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +181,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("halfdim7th")) {enableDisableButtons(); }
                 else { btHalfDim7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btDiminished7th.setOnClickListener(new View.OnClickListener() {
@@ -161,12 +189,21 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             public void onClick(View view) {
                 if(isRightChord("diminished7th")) {enableDisableButtons(); }
                 else { btDiminished7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
 
         enableDisableButtons();
         generateRandomChord();
-        playSoundFile();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+        }
     }
 
     private void generateRandomChord() {
@@ -192,43 +229,32 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             e.printStackTrace();
         }
 
-        System.out.println(filename);
-        System.out.println(audioFiles);
-
         Random random = new Random();
 
         int randomIndex = random.nextInt(audioFiles.size());
         randomChordFile = filename + "/" + audioFiles.get(randomIndex);
-        System.out.println(randomChordFile + "***************************************************************************************************************");
-    }
 
-    private void playSoundFile() {
-        AssetManager assetManager = getAssets();
-        MediaPlayer mediaPlayer = new MediaPlayer();
-
+        mediaPlayer.reset();
         try {
             AssetFileDescriptor assetFileDescriptor = assetManager.openFd(randomChordFile);
             mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
             mediaPlayer.prepare();
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    ibtPlayChord.setEnabled(true);
-                    mediaPlayer.release();
-                }
-            });
         } catch (IOException e) {
             e.printStackTrace();
         }
+        mediaPlayer.start();
+    }
 
-        ibtPlayChord.setEnabled(false);
+    private void playSoundFile() {
+        if (mediaPlayer.isPlaying()) {mediaPlayer.seekTo(0);}
         mediaPlayer.start();
     }
 
     public boolean isRightChord(String clickedButton) {
+        numberAttempts++;
         if(clickedButton.equals(rightChord)) {
+            numberRights++;
             generateRandomChord();
-            playSoundFile();
             return true;
         }
         return false;
@@ -262,7 +288,6 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
         this.chordSettingsValues = chordSettingsValues;
         enableDisableButtons();
         generateRandomChord();
-        playSoundFile();
     }
 
     private void enableDisableButtons() {

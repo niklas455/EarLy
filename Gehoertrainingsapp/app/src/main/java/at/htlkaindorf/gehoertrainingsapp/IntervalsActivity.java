@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettingsDialogCallback;
 
 public class IntervalsActivity extends AppCompatActivity implements IntervalSettingsDialogCallback {
 
+    private TextView tvProgress;
+    private Button btResetProgress;
     private ImageButton ibtPlayInterval;
     private Button btUnison;
     private Button btMinor2nd;
@@ -45,10 +48,13 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
 
     private Typeface tf;
     private IntervalSettings intervalSettingsValues;
+    private int numberAttempts = 0;
+    private int numberRights = 0;
     private String rightInterval;
     private String randomIntervalFile;
 
     private ArrayList<String> audioFiles = new ArrayList<>();
+    private MediaPlayer mediaPlayer = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,8 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             intervalSettingsValues = (IntervalSettings) intent.getSerializableExtra("intervalSettings");
         }
 
+        tvProgress = findViewById(R.id.tvProgress);
+        btResetProgress = findViewById(R.id.btResetProgress);
         ibtPlayInterval = findViewById(R.id.ibtPlayInterval);
         btUnison = findViewById(R.id.btUnison);
         btMinor2nd = findViewById(R.id.btMinor2nd);
@@ -80,6 +88,15 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         btMajor7th = findViewById(R.id.btMajor7th);
         btOctave = findViewById(R.id.btOctave);
 
+        btResetProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numberAttempts = 0;
+                numberRights = 0;
+                tvProgress.setText(numberRights + " / " + numberAttempts);
+            }
+        });
+
         ibtPlayInterval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +104,8 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             }
         });
 
+        tvProgress.setTypeface(tf);
+        btResetProgress.setTypeface(tf);
         btUnison.setTypeface(tf);
         btMinor2nd.setTypeface(tf);
         btMajor2nd.setTypeface(tf);
@@ -106,6 +125,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("unison")) {enableDisableButtons(); }
                 else { btUnison.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMinor2nd.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +133,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("minor2nd")) {enableDisableButtons(); }
                 else { btMinor2nd.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMajor2nd.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +141,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("major2nd")) {enableDisableButtons(); }
                 else { btMajor2nd.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMinor3rd.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +149,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("minor3rd")) {enableDisableButtons(); }
                 else { btMinor3rd.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMajor3rd.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +157,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("major3rd")) {enableDisableButtons(); }
                 else { btMajor3rd.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btPerfect4th.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +165,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("perfect4th")) {enableDisableButtons(); }
                 else { btPerfect4th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btTritone.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +173,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("tritone")) {enableDisableButtons(); }
                 else { btTritone.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btPerfect5th.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +181,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("perfect5th")) {enableDisableButtons(); }
                 else { btPerfect5th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMinor6th.setOnClickListener(new View.OnClickListener() {
@@ -162,6 +189,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("minor6th")) {enableDisableButtons(); }
                 else { btMinor6th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMajor6th.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +197,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("major6th")) {enableDisableButtons(); }
                 else { btMajor6th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMinor7th.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +205,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("minor7th")) {enableDisableButtons(); }
                 else { btMinor7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btMajor7th.setOnClickListener(new View.OnClickListener() {
@@ -183,6 +213,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("major7th")) {enableDisableButtons(); }
                 else { btMajor7th.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
         btOctave.setOnClickListener(new View.OnClickListener() {
@@ -190,12 +221,21 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             public void onClick(View view) {
                 if(isRightInterval("octave")) {enableDisableButtons(); }
                 else { btOctave.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
 
         enableDisableButtons();
         generateRandomInterval();
-        playSoundFile();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+        }
     }
 
     private void generateRandomInterval() {
@@ -230,36 +270,28 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
 
         int randomIndex = random.nextInt(audioFiles.size());
         randomIntervalFile = filename + "/" + audioFiles.get(randomIndex);
-        System.out.println(randomIntervalFile + "********************************************************************************++");
-    }
 
-    private void playSoundFile() {
-        AssetManager assetManager = getAssets();
-        MediaPlayer mediaPlayer = new MediaPlayer();
-
+        mediaPlayer.reset();
         try {
             AssetFileDescriptor assetFileDescriptor = assetManager.openFd(randomIntervalFile);
             mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
             mediaPlayer.prepare();
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    ibtPlayInterval.setEnabled(true);
-                    mediaPlayer.release();
-                }
-            });
         } catch (IOException e) {
             e.printStackTrace();
         }
+        mediaPlayer.start();
+    }
 
-        ibtPlayInterval.setEnabled(false);
+    private void playSoundFile() {
+        if (mediaPlayer.isPlaying()) {mediaPlayer.seekTo(0);}
         mediaPlayer.start();
     }
 
     public boolean isRightInterval(String clickedButton) {
+        numberAttempts++;
         if(clickedButton.equals(rightInterval)) {
+            numberRights++;
             generateRandomInterval();
-            playSoundFile();
             return true;
         }
         return false;
@@ -295,7 +327,6 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         this.intervalSettingsValues = intervalSettingsValues;
         enableDisableButtons();
         generateRandomInterval();
-        playSoundFile();
     }
 
     private void enableDisableButtons() {

@@ -3,15 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="0 / 0"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btResetProgress"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:textAllCaps="false"
+        android:text="Reset"
+        android:textSize="12sp" />
+
     <ImageButton
         android:id="@+id/ibtPlayChord"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/tvProgress"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_corners"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_wave_100x100" />
