@@ -3,6 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btSkip"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="Skip"
+        android:textAllCaps="false"
+        android:textSize="12sp" />
+
     <TextView
         android:id="@+id/tvProgress"
         android:layout_width="match_parent"
@@ -44,35 +59,100 @@
         android:layout_margin="16dp">
         <TableRow>
             <Button
-                android:id="@+id/btMajorScale"
+                android:id="@+id/btMajorIonian"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="Major"
-                android:layout_margin="5dp"/>
+                android:textAllCaps="false"
+                android:text="Major (Ionian)"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
             <Button
-                android:id="@+id/btNaturalMinorScale"
+                android:id="@+id/btNaturalMinorAeolian"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Natural Minor"
-                android:layout_margin="5dp"/>
+                android:textAllCaps="false"
+                android:text="Natural Minor\n(Aeolian)"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/btHarmonicMinorScale"
+                android:id="@+id/btHarmonicMinor"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textAllCaps="false"
                 android:text="Harmonic\nMinor"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/btMelodicMinor"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Melodic Minor"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btDorian"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Dorian"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/btPhrygian"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Phrygian"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btLydian"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Lydian"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/btMixolydian"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Mixolydian"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_margin="5dp"/>
             <Button
-                android:id="@+id/btMelodicMinorScale"
+                android:id="@+id/btLocrian"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="Melodic\nMinor"
-                android:layout_margin="5dp"/>
+                android:textAllCaps="false"
+                android:text="Locrian"
+                android:layout_margin="5dp"
+                android:textSize="16sp"/>
         </TableRow>
     </TableLayout>
 

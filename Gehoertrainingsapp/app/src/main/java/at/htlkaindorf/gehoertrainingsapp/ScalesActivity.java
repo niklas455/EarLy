@@ -23,19 +23,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
 import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettings;
 import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettingsDialogCallback;
 
 public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDialogCallback {
 
+    private Button btSkip;
     private TextView tvProgress;
     private Button btResetProgress;
     private ImageButton ibtPlayScale;
-    private Button btMajorScale;
-    private Button btNaturalMinorScale;
-    private Button btHarmonicMinorScale;
-    private Button btMelodicMinorScale;
+    private Button btMajorIonian;
+    private Button btNaturalMinorAeolian;
+    private Button btHarmonicMinor;
+    private Button btMelodicMinor;
+    private Button btDorian;
+    private Button btPhrygian;
+    private Button btLydian;
+    private Button btMixolydian;
+    private Button btLocrian;
     private Dialog scaleSettings;
 
     private Typeface tf;
@@ -63,13 +68,26 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
             scaleSettingsValues = (ScaleSettings) intent.getSerializableExtra("scaleSettings");
         }
 
+        btSkip = findViewById(R.id.btSkip);
         tvProgress = findViewById(R.id.tvProgress);
         btResetProgress = findViewById(R.id.btResetProgress);
         ibtPlayScale = findViewById(R.id.ibtPlayScale);
-        btMajorScale = findViewById(R.id.btMajorScale);
-        btNaturalMinorScale = findViewById(R.id.btNaturalMinorScale);
-        btHarmonicMinorScale = findViewById(R.id.btHarmonicMinorScale);
-        btMelodicMinorScale = findViewById(R.id.btMelodicMinorScale);
+        btMajorIonian = findViewById(R.id.btMajorIonian);
+        btNaturalMinorAeolian = findViewById(R.id.btNaturalMinorAeolian);
+        btHarmonicMinor = findViewById(R.id.btHarmonicMinor);
+        btMelodicMinor = findViewById(R.id.btMelodicMinor);
+        btDorian = findViewById(R.id.btDorian);
+        btPhrygian = findViewById(R.id.btPhrygian);
+        btLydian = findViewById(R.id.btLydian);
+        btMixolydian = findViewById(R.id.btMixolydian);
+        btLocrian = findViewById(R.id.btLocrian);
+
+        btSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                generateRandomScale();
+            }
+        });
 
         btResetProgress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,42 +105,88 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
             }
         });
 
+        btSkip.setTypeface(tf);
         tvProgress.setTypeface(tf);
         btResetProgress.setTypeface(tf);
-        btMajorScale.setTypeface(tf);
-        btNaturalMinorScale.setTypeface(tf);
-        btHarmonicMinorScale.setTypeface(tf);
-        btMelodicMinorScale.setTypeface(tf);
+        btMajorIonian.setTypeface(tf);
+        btNaturalMinorAeolian.setTypeface(tf);
+        btHarmonicMinor.setTypeface(tf);
+        btMelodicMinor.setTypeface(tf);
+        btDorian.setTypeface(tf);
+        btPhrygian.setTypeface(tf);
+        btLydian.setTypeface(tf);
+        btMixolydian.setTypeface(tf);
+        btLocrian.setTypeface(tf);
 
-        btMajorScale.setOnClickListener(new View.OnClickListener() {
+        btMajorIonian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isRightScale("majorscale")) {enableDisableButtons(); }
-                else { btMajorScale.setEnabled(false);}
+                if(isRightScale("major_ionian")) {enableDisableButtons(); }
+                else { btMajorIonian.setEnabled(false);}
                 tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
-        btNaturalMinorScale.setOnClickListener(new View.OnClickListener() {
+        btNaturalMinorAeolian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isRightScale("naturalminorscale")) {enableDisableButtons(); }
-                else { btNaturalMinorScale.setEnabled(false);}
+                if(isRightScale("natural_minor_aeolian")) {enableDisableButtons(); }
+                else { btNaturalMinorAeolian.setEnabled(false);}
                 tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
-        btHarmonicMinorScale.setOnClickListener(new View.OnClickListener() {
+        btHarmonicMinor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isRightScale("harmonicminorscale")) {enableDisableButtons(); }
-                else { btHarmonicMinorScale.setEnabled(false);}
+                if(isRightScale("harmonic_minor")) {enableDisableButtons(); }
+                else { btHarmonicMinor.setEnabled(false);}
                 tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
-        btMelodicMinorScale.setOnClickListener(new View.OnClickListener() {
+        btMelodicMinor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isRightScale("melodicminorscale")) {enableDisableButtons(); }
-                else { btMelodicMinorScale.setEnabled(false);}
+                if(isRightScale("melodic_minor")) {enableDisableButtons(); }
+                else { btMelodicMinor.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
+            }
+        });
+        btDorian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightScale("dorian")) {enableDisableButtons(); }
+                else { btDorian.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
+            }
+        });
+        btPhrygian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightScale("phrygian")) {enableDisableButtons(); }
+                else { btPhrygian.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
+            }
+        });
+        btLydian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightScale("lydian")) {enableDisableButtons(); }
+                else { btLydian.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
+            }
+        });
+        btMixolydian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightScale("mixolydian")) {enableDisableButtons(); }
+                else { btMixolydian.setEnabled(false);}
+                tvProgress.setText(numberRights + " / " + numberAttempts);
+            }
+        });
+        btLocrian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRightScale("locrian")) {enableDisableButtons(); }
+                else { btLocrian.setEnabled(false);}
                 tvProgress.setText(numberRights + " / " + numberAttempts);
             }
         });
@@ -212,8 +276,8 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
     @Override
     public void onScaleSettingsReturned(ScaleSettings scaleSettingsValues) {
         if(scaleSettingsValues.allIntervalFalse()) {
-            scaleSettingsValues.setMajor(true);
-            scaleSettingsValues.setNaturalMinor(true);
+            scaleSettingsValues.setMajorIonian(true);
+            scaleSettingsValues.setNaturalMinorAeolian(true);
         }
         if(scaleSettingsValues.allPlayModeFalse()) {
             scaleSettingsValues.setAscending(true);
@@ -225,9 +289,14 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
     }
 
     private void enableDisableButtons() {
-        if(scaleSettingsValues.isMajor()) { btMajorScale.setEnabled(true);} else {btMajorScale.setEnabled(false);}
-        if(scaleSettingsValues.isNaturalMinor()) { btNaturalMinorScale.setEnabled(true);} else {btNaturalMinorScale.setEnabled(false);}
-        if(scaleSettingsValues.isHarmonicMinor()) { btHarmonicMinorScale.setEnabled(true);} else {btHarmonicMinorScale.setEnabled(false);}
-        if(scaleSettingsValues.isMelodicMinor()) { btMelodicMinorScale.setEnabled(true);} else {btMelodicMinorScale.setEnabled(false);}
+        if(scaleSettingsValues.isMajorIonian()) { btMajorIonian.setEnabled(true);} else {btMajorIonian.setEnabled(false);}
+        if(scaleSettingsValues.isNaturalMinorAeolian()) { btNaturalMinorAeolian.setEnabled(true);} else {btNaturalMinorAeolian.setEnabled(false);}
+        if(scaleSettingsValues.isHarmonicMinor()) { btHarmonicMinor.setEnabled(true);} else {btHarmonicMinor.setEnabled(false);}
+        if(scaleSettingsValues.isMelodicMinor()) { btMelodicMinor.setEnabled(true);} else {btMelodicMinor.setEnabled(false);}
+        if(scaleSettingsValues.isDorian()) { btDorian.setEnabled(true);} else {btDorian.setEnabled(false);}
+        if(scaleSettingsValues.isPhrygian()) { btPhrygian.setEnabled(true);} else {btPhrygian.setEnabled(false);}
+        if(scaleSettingsValues.isLydian()) { btLydian.setEnabled(true);} else {btLydian.setEnabled(false);}
+        if(scaleSettingsValues.isMixolydian()) { btMixolydian.setEnabled(true);} else {btMixolydian.setEnabled(false);}
+        if(scaleSettingsValues.isLocrian()) { btLocrian.setEnabled(true);} else {btLocrian.setEnabled(false);}
     }
 }

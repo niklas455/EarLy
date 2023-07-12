@@ -9,16 +9,20 @@ import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 
-import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
 import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettings;
 import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettingsDialogCallback;
 
 public class ScaleSettingsDialog extends Dialog {
 
-    private Switch sbtMajorScale;
-    private Switch sbtNaturalMinorScale;
-    private Switch sbtHarmonicMinorScale;
-    private Switch sbtMelodicMinorScale;
+    private Switch sbtMajorIonian;
+    private Switch sbtNaturalMinorAeolian;
+    private Switch sbtHarmonicMinor;
+    private Switch sbtMelodicMinor;
+    private Switch sbtDorian;
+    private Switch sbtPhrygian;
+    private Switch sbtLydian;
+    private Switch sbtMixolydian;
+    private Switch sbtLocrian;
     private CheckBox cbAscending;
     private CheckBox cbDescending;
 
@@ -36,40 +40,80 @@ public class ScaleSettingsDialog extends Dialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scale_pop_up);
 
-        sbtMajorScale = findViewById(R.id.sbtMajorScale);
-        sbtNaturalMinorScale = findViewById(R.id.sbtNaturalMinorScale);
-        sbtHarmonicMinorScale = findViewById(R.id.sbtHarmonicMinorScale);
-        sbtMelodicMinorScale = findViewById(R.id.sbtMelodicMinorScale);
+        sbtMajorIonian = findViewById(R.id.sbtMajorIonian);
+        sbtNaturalMinorAeolian = findViewById(R.id.sbtNaturalMinorAeolian);
+        sbtHarmonicMinor = findViewById(R.id.sbtHarmonicMinor);
+        sbtMelodicMinor = findViewById(R.id.sbtMelodicMinor);
+        sbtDorian = findViewById(R.id.sbtDorian);
+        sbtPhrygian = findViewById(R.id.sbtPhrygian);
+        sbtLydian = findViewById(R.id.sbtLydian);
+        sbtMixolydian = findViewById(R.id.sbtMixolydian);
+        sbtLocrian = findViewById(R.id.sbtLocrian);
         cbAscending = findViewById(R.id.cbAscending);
         cbDescending = findViewById(R.id.cbDescending);
 
         setScaleSettings();
 
-        sbtMajorScale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sbtMajorIonian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                scaleSettingsValues.setMajor(sbtMajorScale.isChecked());
+                scaleSettingsValues.setMajorIonian(sbtMajorIonian.isChecked());
             }
         });
 
-        sbtNaturalMinorScale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sbtNaturalMinorAeolian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                scaleSettingsValues.setNaturalMinor(sbtNaturalMinorScale.isChecked());
+                scaleSettingsValues.setNaturalMinorAeolian(sbtNaturalMinorAeolian.isChecked());
             }
         });
 
-        sbtHarmonicMinorScale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sbtHarmonicMinor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                scaleSettingsValues.setHarmonicMinor(sbtHarmonicMinorScale.isChecked());
+                scaleSettingsValues.setHarmonicMinor(sbtHarmonicMinor.isChecked());
             }
         });
 
-        sbtMelodicMinorScale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sbtMelodicMinor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                scaleSettingsValues.setMelodicMinor(sbtMelodicMinorScale.isChecked());
+                scaleSettingsValues.setMelodicMinor(sbtMelodicMinor.isChecked());
+            }
+        });
+
+        sbtDorian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                scaleSettingsValues.setDorian(sbtDorian.isChecked());
+            }
+        });
+
+        sbtPhrygian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                scaleSettingsValues.setPhrygian(sbtPhrygian.isChecked());
+            }
+        });
+
+        sbtLydian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                scaleSettingsValues.setLydian(sbtLydian.isChecked());
+            }
+        });
+
+        sbtMixolydian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                scaleSettingsValues.setMixolydian(sbtMixolydian.isChecked());
+            }
+        });
+
+        sbtLocrian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                scaleSettingsValues.setLocrian(sbtLocrian.isChecked());
             }
         });
 
@@ -90,10 +134,15 @@ public class ScaleSettingsDialog extends Dialog {
     }
 
     private void setScaleSettings() {
-        sbtMajorScale.setChecked(scaleSettingsValues.isMajor());
-        sbtNaturalMinorScale.setChecked(scaleSettingsValues.isNaturalMinor());
-        sbtHarmonicMinorScale.setChecked(scaleSettingsValues.isHarmonicMinor());
-        sbtMelodicMinorScale.setChecked(scaleSettingsValues.isMelodicMinor());
+        sbtMajorIonian.setChecked(scaleSettingsValues.isMajorIonian());
+        sbtNaturalMinorAeolian.setChecked(scaleSettingsValues.isNaturalMinorAeolian());
+        sbtHarmonicMinor.setChecked(scaleSettingsValues.isHarmonicMinor());
+        sbtMelodicMinor.setChecked(scaleSettingsValues.isMelodicMinor());
+        sbtDorian.setChecked(scaleSettingsValues.isDorian());
+        sbtPhrygian.setChecked(scaleSettingsValues.isPhrygian());
+        sbtLydian.setChecked(scaleSettingsValues.isLydian());
+        sbtMixolydian.setChecked(scaleSettingsValues.isMixolydian());
+        sbtLocrian.setChecked(scaleSettingsValues.isLocrian());
         cbAscending.setChecked(scaleSettingsValues.isAscending());
         cbDescending.setChecked(scaleSettingsValues.isDescending());
     }

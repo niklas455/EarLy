@@ -28,6 +28,7 @@ import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettingsDialogCallback;
 
 public class IntervalsActivity extends AppCompatActivity implements IntervalSettingsDialogCallback {
 
+    private Button btSkip;
     private TextView tvProgress;
     private Button btResetProgress;
     private ImageButton ibtPlayInterval;
@@ -71,6 +72,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             intervalSettingsValues = (IntervalSettings) intent.getSerializableExtra("intervalSettings");
         }
 
+        btSkip = findViewById(R.id.btSkip);
         tvProgress = findViewById(R.id.tvProgress);
         btResetProgress = findViewById(R.id.btResetProgress);
         ibtPlayInterval = findViewById(R.id.ibtPlayInterval);
@@ -88,6 +90,13 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         btMajor7th = findViewById(R.id.btMajor7th);
         btOctave = findViewById(R.id.btOctave);
 
+        btSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                generateRandomInterval();
+            }
+        });
+
         btResetProgress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +113,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             }
         });
 
+        btSkip.setTypeface(tf);
         tvProgress.setTypeface(tf);
         btResetProgress.setTypeface(tf);
         btUnison.setTypeface(tf);

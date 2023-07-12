@@ -3,6 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btSkip"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="Skip"
+        android:textAllCaps="false"
+        android:textSize="12sp" />
+
     <TextView
         android:id="@+id/tvProgress"
         android:layout_width="match_parent"

@@ -13,33 +13,79 @@
 
         <TableRow>
             <Switch
-                android:id="@+id/sbtMajorScale"
+                android:id="@+id/sbtMajorIonian"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:text="Major"
+                android:text="Major (Ionian)"
                 android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
-                android:id="@+id/sbtNaturalMinorScale"
+                android:id="@+id/sbtNaturalMinorAeolian"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Natural Minor"
+                android:layout_height="match_parent"
+                android:text="Natural Minor\n(Aeolian)"
                 android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>
         <TableRow>
             <Switch
-                android:id="@+id/sbtHarmonicMinorScale"
+                android:id="@+id/sbtHarmonicMinor"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Harmonic Minor"
                 android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
             <Switch
-                android:id="@+id/sbtMelodicMinorScale"
+                android:id="@+id/sbtMelodicMinor"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:text="Melodic Minor"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtDorian"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Dorian"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme"/>
+            <Switch
+                android:id="@+id/sbtPhrygian"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Phrygian"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme"/>
+        </TableRow>
+        <TableRow>
+            <Switch
+                android:id="@+id/sbtLydian"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Lydian"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme"/>
+            <Switch
+                android:id="@+id/sbtMixolydian"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Mixolydian"
+                android:textColor="@color/white"
+                android:theme="@style/SwitchCompatTheme"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvEmptyTextView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <Switch
+                android:id="@+id/sbtLocrian"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Locrian"
                 android:textColor="@color/white"
                 android:theme="@style/SwitchCompatTheme"/>
         </TableRow>

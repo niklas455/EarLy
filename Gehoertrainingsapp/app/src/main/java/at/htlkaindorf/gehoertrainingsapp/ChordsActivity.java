@@ -29,6 +29,7 @@ import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettingsDialogCallback;
 
 public class ChordsActivity extends AppCompatActivity implements ChordSettingsDialogCallback {
 
+    private Button btSkip;
     private TextView tvProgress;
     private Button btResetProgress;
     private ImageButton ibtPlayChord;
@@ -69,6 +70,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             chordSettingsValues = (ChordSettings) intent.getSerializableExtra("chordSettings");
         }
 
+        btSkip = findViewById(R.id.btSkip);
         tvProgress = findViewById(R.id.tvProgress);
         btResetProgress = findViewById(R.id.btResetProgress);
         ibtPlayChord = findViewById(R.id.ibtPlayChord);
@@ -82,6 +84,13 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
         btMinorMaj7th = findViewById(R.id.btMinorMaj7th);
         btHalfDim7th = findViewById(R.id.btHalfDim7th);
         btDiminished7th = findViewById(R.id.btDiminished7th);
+
+        btSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                generateRandomChord();
+            }
+        });
 
         btResetProgress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +108,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             }
         });
 
+        btSkip.setTypeface(tf);
         tvProgress.setTypeface(tf);
         btResetProgress.setTypeface(tf);
         btMajor.setTypeface(tf);

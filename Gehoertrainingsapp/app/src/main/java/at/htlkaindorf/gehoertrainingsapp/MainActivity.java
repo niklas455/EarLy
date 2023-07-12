@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         intervalSettings = new IntervalSettings(false, false, true, false, true, true, false, true, false, false, false, false, false, true, false, false);
         chordSettings = new ChordSettings(true, true, false, false, false, false, false, false, false, false, false, false, true);
-        scaleSettings = new ScaleSettings(true, true, false, false, true, false);
+        scaleSettings = new ScaleSettings(true, true, false, false, false, false, false, false, false, true, false);
 
         // open Interval Activity
         btIntervals = (Button) findViewById(R.id.btIntervals);
