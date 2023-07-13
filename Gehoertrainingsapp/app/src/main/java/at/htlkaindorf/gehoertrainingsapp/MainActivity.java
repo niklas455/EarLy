@@ -16,6 +16,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.lang.reflect.Type;
+
 import at.htlkaindorf.gehoertrainingsapp.beans.ChordSettings;
 import at.htlkaindorf.gehoertrainingsapp.beans.IntervalSettings;
 import at.htlkaindorf.gehoertrainingsapp.beans.ScaleSettings;
@@ -27,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btChords;
     private Button btScales;
     private Switch sbtDarkModeSwitch;
-
-    Typeface tf1, tf2;
 
     private IntervalSettings intervalSettings;
     private ChordSettings chordSettings;
@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf1 = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
-        tf2 = Typeface.createFromAsset(getAssets(), "font/opensans_bold.ttf");
+        Typeface tf1 = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
+        Typeface tf2 = Typeface.createFromAsset(getAssets(), "font/opensans_bold.ttf");
 
         tvAppName = findViewById(R.id.tvAppName);
         tvAppName.setTypeface(tf2);

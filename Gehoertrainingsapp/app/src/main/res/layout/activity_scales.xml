@@ -162,12 +162,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="20dp"
         android:background="@android:color/transparent"
         android:onClick="openScaleSettings"
         android:src="@drawable/ic_setting_72x72" />
+
+    <ImageButton
+        android:id="@+id/ibtInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:background="@android:color/transparent"
+        android:onClick="openScaleTheory"
+        android:src="@drawable/ic_info2_48x48" />
 
 </RelativeLayout>

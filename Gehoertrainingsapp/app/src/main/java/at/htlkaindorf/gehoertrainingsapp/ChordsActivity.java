@@ -45,7 +45,6 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
     private Button btDiminished7th;
     private Dialog chordSettings;
 
-    private Typeface tf;
     private ChordSettings chordSettingsValues;
     private int numberAttempts = 0;
     private int numberRights = 0;
@@ -63,7 +62,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
         Intent intent = getIntent();
         if(intent != null && intent.hasExtra("chordSettings")) {
@@ -89,6 +88,7 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             @Override
             public void onClick(View view) {
                 generateRandomChord();
+                enableDisableButtons();
             }
         });
 
@@ -212,7 +212,8 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
         super.onPause();
 
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
+            mediaPlayer.pause();
+            mediaPlayer.seekTo(0);
         }
     }
 
@@ -283,6 +284,11 @@ public class ChordsActivity extends AppCompatActivity implements ChordSettingsDi
             }
         });
         chordSettings.show();
+    }
+
+    public void openChordTheory(View v) {
+        Intent intent = new Intent(ChordsActivity.this, ChordTheoryActivity.class);
+        startActivity(intent);
     }
 
     @Override

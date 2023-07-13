@@ -43,7 +43,6 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
     private Button btLocrian;
     private Dialog scaleSettings;
 
-    private Typeface tf;
     private ScaleSettings scaleSettingsValues;
     private int numberAttempts = 0;
     private int numberRights = 0;
@@ -61,7 +60,7 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
         Intent intent = getIntent();
         if(intent != null && intent.hasExtra("scaleSettings")) {
@@ -86,6 +85,7 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
             @Override
             public void onClick(View view) {
                 generateRandomScale();
+                enableDisableButtons();
             }
         });
 
@@ -200,7 +200,8 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
         super.onPause();
 
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
+            mediaPlayer.pause();
+            mediaPlayer.seekTo(0);
         }
     }
 
@@ -271,6 +272,11 @@ public class ScalesActivity extends AppCompatActivity implements ScaleSettingsDi
             }
         });
         scaleSettings.show();
+    }
+
+    public void openScaleTheory(View v) {
+        Intent intent = new Intent(ScalesActivity.this, ScaleTheoryActivity.class);
+        startActivity(intent);
     }
 
     @Override

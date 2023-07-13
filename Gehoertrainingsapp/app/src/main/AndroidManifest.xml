@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Gehoertrainingsapp"
         tools:targetApi="31">
         <activity
+            android:name=".ScaleTheoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChordTheoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IntervalTheoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".ScalesActivity"
             android:exported="false" />
         <activity

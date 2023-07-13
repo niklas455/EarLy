@@ -47,7 +47,6 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
     private Button btOctave;
     private Dialog intervalSettings;
 
-    private Typeface tf;
     private IntervalSettings intervalSettingsValues;
     private int numberAttempts = 0;
     private int numberRights = 0;
@@ -65,7 +64,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "font/opensans_regular.ttf");
 
         Intent intent = getIntent();
         if(intent != null && intent.hasExtra("intervalSettings")) {
@@ -94,6 +93,7 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             @Override
             public void onClick(View view) {
                 generateRandomInterval();
+                enableDisableButtons();
             }
         });
 
@@ -244,7 +244,8 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
         super.onPause();
 
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
+            mediaPlayer.pause();
+            mediaPlayer.seekTo(0);
         }
     }
 
@@ -320,6 +321,11 @@ public class IntervalsActivity extends AppCompatActivity implements IntervalSett
             }
         });
         intervalSettings.show();
+    }
+
+    public void openIntervalTheory(View v) {
+        Intent intent = new Intent(IntervalsActivity.this, IntervalTheoryActivity.class);
+        startActivity(intent);
     }
 
     @Override
